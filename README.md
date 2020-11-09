@@ -1,5 +1,5 @@
 # ESOFproject
-Membros do Projeto:
+Membros do Grupo:
 
 Rui Barbosa 38040
 José Neves 38701
