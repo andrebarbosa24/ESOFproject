@@ -1,0 +1,39 @@
+2021-01-14 10:30:28.766  INFO 57407 --- [main] E.Controllers.TarefaControllerTest       : Starting TarefaControllerTest on MBP-do-Barbosa.lan with PID 57407 (started by andrebarbosa in /Users/andrebarbosa/Downloads/ESOF-master 3)
+2021-01-14 10:30:28.769 DEBUG 57407 --- [main] E.Controllers.TarefaControllerTest       : Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2021-01-14 10:30:28.772  INFO 57407 --- [main] E.Controllers.TarefaControllerTest       : No active profile set, falling back to default profiles: default
+2021-01-14 10:30:31.454  INFO 57407 --- [main] E.Controllers.TarefaControllerTest       : Started TarefaControllerTest in 3.448 seconds (JVM running for 5.765)
+2021-01-14 10:30:35.982  INFO 57407 --- [main] E.Controllers.EmpregadoControllerTest    : Starting EmpregadoControllerTest on MBP-do-Barbosa.lan with PID 57407 (started by andrebarbosa in /Users/andrebarbosa/Downloads/ESOF-master 3)
+2021-01-14 10:30:35.983 DEBUG 57407 --- [main] E.Controllers.EmpregadoControllerTest    : Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2021-01-14 10:30:35.985  INFO 57407 --- [main] E.Controllers.EmpregadoControllerTest    : No active profile set, falling back to default profiles: default
+2021-01-14 10:30:36.431  INFO 57407 --- [main] E.Controllers.EmpregadoControllerTest    : Started EmpregadoControllerTest in 0.476 seconds (JVM running for 10.742)
+2021-01-14 10:30:36.629  INFO 57407 --- [main] E.Controllers.ProjetoControllerTest      : Starting ProjetoControllerTest on MBP-do-Barbosa.lan with PID 57407 (started by andrebarbosa in /Users/andrebarbosa/Downloads/ESOF-master 3)
+2021-01-14 10:30:36.630 DEBUG 57407 --- [main] E.Controllers.ProjetoControllerTest      : Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2021-01-14 10:30:36.631  INFO 57407 --- [main] E.Controllers.ProjetoControllerTest      : No active profile set, falling back to default profiles: default
+2021-01-14 10:30:37.053  INFO 57407 --- [main] E.Controllers.ProjetoControllerTest      : Started ProjetoControllerTest in 0.443 seconds (JVM running for 11.363)
+2021-01-14 10:30:37.071  WARN 57407 --- [main] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2021-01-14 10:35:57.460  INFO 57622 --- [main] E.Controllers.TarefaControllerTest       : Starting TarefaControllerTest on MBP-do-Barbosa.lan with PID 57622 (started by andrebarbosa in /Users/andrebarbosa/Downloads/ESOF-master 3)
+2021-01-14 10:35:57.462 DEBUG 57622 --- [main] E.Controllers.TarefaControllerTest       : Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2021-01-14 10:35:57.465  INFO 57622 --- [main] E.Controllers.TarefaControllerTest       : No active profile set, falling back to default profiles: default
+2021-01-14 10:36:00.126  INFO 57622 --- [main] E.Controllers.TarefaControllerTest       : Started TarefaControllerTest in 3.337 seconds (JVM running for 5.216)
+2021-01-14 10:36:04.562  INFO 57622 --- [main] E.Controllers.EmpregadoControllerTest    : Starting EmpregadoControllerTest on MBP-do-Barbosa.lan with PID 57622 (started by andrebarbosa in /Users/andrebarbosa/Downloads/ESOF-master 3)
+2021-01-14 10:36:04.563 DEBUG 57622 --- [main] E.Controllers.EmpregadoControllerTest    : Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2021-01-14 10:36:04.564  INFO 57622 --- [main] E.Controllers.EmpregadoControllerTest    : No active profile set, falling back to default profiles: default
+2021-01-14 10:36:05.017  INFO 57622 --- [main] E.Controllers.EmpregadoControllerTest    : Started EmpregadoControllerTest in 0.479 seconds (JVM running for 10.106)
+2021-01-14 10:36:05.229  INFO 57622 --- [main] E.Controllers.ProjetoControllerTest      : Starting ProjetoControllerTest on MBP-do-Barbosa.lan with PID 57622 (started by andrebarbosa in /Users/andrebarbosa/Downloads/ESOF-master 3)
+2021-01-14 10:36:05.229 DEBUG 57622 --- [main] E.Controllers.ProjetoControllerTest      : Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2021-01-14 10:36:05.231  INFO 57622 --- [main] E.Controllers.ProjetoControllerTest      : No active profile set, falling back to default profiles: default
+2021-01-14 10:36:05.634  INFO 57622 --- [main] E.Controllers.ProjetoControllerTest      : Started ProjetoControllerTest in 0.439 seconds (JVM running for 10.723)
+2021-01-14 10:36:05.650  WARN 57622 --- [main] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2021-01-14 10:36:57.696  INFO 57658 --- [main] E.Controllers.TarefaControllerTest       : Starting TarefaControllerTest on MBP-do-Barbosa.lan with PID 57658 (started by andrebarbosa in /Users/andrebarbosa/Downloads/ESOF-master 3)
+2021-01-14 10:36:57.697 DEBUG 57658 --- [main] E.Controllers.TarefaControllerTest       : Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2021-01-14 10:36:57.702  INFO 57658 --- [main] E.Controllers.TarefaControllerTest       : No active profile set, falling back to default profiles: default
+2021-01-14 10:37:00.533  INFO 57658 --- [main] E.Controllers.TarefaControllerTest       : Started TarefaControllerTest in 3.617 seconds (JVM running for 5.671)
+2021-01-14 10:37:04.861  INFO 57658 --- [main] E.Controllers.EmpregadoControllerTest    : Starting EmpregadoControllerTest on MBP-do-Barbosa.lan with PID 57658 (started by andrebarbosa in /Users/andrebarbosa/Downloads/ESOF-master 3)
+2021-01-14 10:37:04.862 DEBUG 57658 --- [main] E.Controllers.EmpregadoControllerTest    : Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2021-01-14 10:37:04.863  INFO 57658 --- [main] E.Controllers.EmpregadoControllerTest    : No active profile set, falling back to default profiles: default
+2021-01-14 10:37:05.473  INFO 57658 --- [main] E.Controllers.EmpregadoControllerTest    : Started EmpregadoControllerTest in 0.64 seconds (JVM running for 10.611)
+2021-01-14 10:37:05.703  INFO 57658 --- [main] E.Controllers.ProjetoControllerTest      : Starting ProjetoControllerTest on MBP-do-Barbosa.lan with PID 57658 (started by andrebarbosa in /Users/andrebarbosa/Downloads/ESOF-master 3)
+2021-01-14 10:37:05.703 DEBUG 57658 --- [main] E.Controllers.ProjetoControllerTest      : Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2021-01-14 10:37:05.705  INFO 57658 --- [main] E.Controllers.ProjetoControllerTest      : No active profile set, falling back to default profiles: default
+2021-01-14 10:37:06.277  INFO 57658 --- [main] E.Controllers.ProjetoControllerTest      : Started ProjetoControllerTest in 0.611 seconds (JVM running for 11.415)
+2021-01-14 10:37:06.293  WARN 57658 --- [main] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
