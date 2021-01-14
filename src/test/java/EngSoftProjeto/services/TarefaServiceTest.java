@@ -1,9 +1,8 @@
-package EngSoftProjeto.services;
+package engsoftprojeto.services;
 
-import EngSoftProjeto.Models.Tarefa;
-import EngSoftProjeto.Services.TarefaService;
-import EngSoftProjeto.Services.UseCasesFacade.Tarefa.CriarTarefaUseCase;
-import EngSoftProjeto.Services.UseCasesFacade.Tarefa.TarefaServiceImplementacao;
+import engsoftprojeto.models.Tarefa;
+import engsoftprojeto.services.usecasesfacade.Tarefa.CriarTarefaUseCase;
+import engsoftprojeto.services.usecasesfacade.Tarefa.TarefaServiceImplementacao;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

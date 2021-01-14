@@ -1,7 +1,7 @@
-package EngSoftProjeto.Services.UseCasesFacade.Tarefa;
+package engsoftprojeto.services.usecasesfacade.Tarefa;
 
-import EngSoftProjeto.Models.Tarefa;
-import EngSoftProjeto.Repositories.TarefaRepository;
+import engsoftprojeto.models.Tarefa;
+import engsoftprojeto.repositories.TarefaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

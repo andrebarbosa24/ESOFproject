@@ -1,7 +1,7 @@
-package EngSoftProjeto.Services.UseCasesFacade.Projeto;
+package engsoftprojeto.services.usecasesfacade.Projeto;
 
-import EngSoftProjeto.Models.Projeto;
-import EngSoftProjeto.Repositories.ProjetoRepository;
+import engsoftprojeto.models.Projeto;
+import engsoftprojeto.repositories.ProjetoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

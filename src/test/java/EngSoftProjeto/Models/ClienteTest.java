@@ -1,4 +1,4 @@
-package EngSoftProjeto.Models;
+package engsoftprojeto.models;
 
 import org.junit.jupiter.api.Test;
 

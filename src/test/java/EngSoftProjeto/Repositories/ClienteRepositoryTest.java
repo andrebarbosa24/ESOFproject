@@ -1,6 +1,6 @@
-package EngSoftProjeto.Repositories;
+package engsoftprojeto.repositories;
 
-import EngSoftProjeto.Models.Cliente;
+import engsoftprojeto.models.Cliente;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;

@@ -1,21 +1,11 @@
-package EngSoftProjeto.dtos.conversores;
+package engsoftprojeto.dtos.conversores;
 
-import EngSoftProjeto.Models.Tarefa;
-import EngSoftProjeto.dtos.TarefaResponseDTO;
+import engsoftprojeto.models.Tarefa;
+import engsoftprojeto.dtos.TarefaResponseDTO;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ConverterTarefaParaDTO implements Conversor<TarefaResponseDTO, Tarefa> {
-
-
-
-
-
-
-
-
-
-
 
 
 

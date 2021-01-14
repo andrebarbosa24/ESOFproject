@@ -1,6 +1,6 @@
-package EngSoftProjeto.dtos;
+package engsoftprojeto.dtos;
 
-import EngSoftProjeto.Models.Tarefa;
+import engsoftprojeto.models.Tarefa;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

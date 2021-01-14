@@ -1,4 +1,4 @@
-package EngSoftProjeto.dtos;
+package engsoftprojeto.dtos;
 
 
 import lombok.Data;

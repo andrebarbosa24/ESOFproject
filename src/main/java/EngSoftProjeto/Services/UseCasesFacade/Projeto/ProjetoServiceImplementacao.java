@@ -1,8 +1,8 @@
-package EngSoftProjeto.Services.UseCasesFacade.Projeto;
+package engsoftprojeto.services.usecasesfacade.Projeto;
 
-import EngSoftProjeto.Models.Projeto;
-import EngSoftProjeto.Models.Tarefa;
-import EngSoftProjeto.Services.ProjetoService;
+import engsoftprojeto.models.Projeto;
+import engsoftprojeto.models.Tarefa;
+import engsoftprojeto.services.ProjetoService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

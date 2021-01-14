@@ -1,18 +1,14 @@
-package EngSoftProjeto;
+package engsoftprojeto;
 
-import EngSoftProjeto.Models.*;
-import EngSoftProjeto.Repositories.ClienteRepository;
-import EngSoftProjeto.Repositories.EmpregadoRepository;
-import EngSoftProjeto.Repositories.ProjetoRepository;
-import EngSoftProjeto.Repositories.TarefaRepository;
+import engsoftprojeto.models.*;
+import engsoftprojeto.repositories.ClienteRepository;
+import engsoftprojeto.repositories.EmpregadoRepository;
+import engsoftprojeto.repositories.ProjetoRepository;
+import engsoftprojeto.repositories.TarefaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 @Component
 public class Inicializacao implements ApplicationListener<ContextRefreshedEvent> {
@@ -59,21 +55,20 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
         Empregado emp = new Empregado();
         emp.setNome("Andre B");
         emp.setCargo(Cargo.DesenvolvedorJr);
-        emp.custo(emp.getCargo());
+        emp.custo();
 
         empregadoRepository.save(emp);
 
         Empregado emp1 = new Empregado();
         emp1.setNome("Jose N");
         emp1.setCargo(Cargo.AnalistaJr);
-        emp1.custo(emp.getCargo());
 
         empregadoRepository.save(emp1);
 
         Empregado emp2 = new Empregado();
         emp2.setNome("Joao F");
         emp2.setCargo(Cargo.DesenvolvedorSr);
-        emp2.custo(emp.getCargo());
+        emp2.custo();
 
         empregadoRepository.save(emp2);
 
@@ -85,11 +80,10 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
         tf.setDuracao(60);
         tf.setNome("Executar testes de repositiorios");
         tf.setEmpregado(emp);
-       //tarefaRepository.save(tf);
+        //tarefaRepository.save(tf);
+        //emp.addTarefa(tf);
 
         Tarefa tf1 = new Tarefa();
-
-
         tf1.setEmpregado(emp1);
         tf1.setDuracao(90);
         tf1.setNome("Executar testes de servicos");
@@ -100,7 +94,6 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
         tf2.setEmpregado(emp2);
         tf2.setDuracao(180);
         tf1.setNome("Executar testes de controladores");
-        tf2.setEmpregado(emp2);
         //tarefaRepository.save(tf2);
 
         //Save projetos para a BD

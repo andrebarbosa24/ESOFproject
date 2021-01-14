@@ -1,7 +1,7 @@
-package EngSoftProjeto.dtos.conversores;
+package engsoftprojeto.dtos.conversores;
 
-import EngSoftProjeto.Models.Empregado;
-import EngSoftProjeto.dtos.EmpregadoResponseDTO;
+import engsoftprojeto.models.Empregado;
+import engsoftprojeto.dtos.EmpregadoResponseDTO;
 import org.springframework.stereotype.Component;
 
 @Component

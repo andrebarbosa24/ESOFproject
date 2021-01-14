@@ -1,6 +1,6 @@
-package EngSoftProjeto.Services;
+package engsoftprojeto.services;
 
-import EngSoftProjeto.Models.Tarefa;
+import engsoftprojeto.models.Tarefa;
 
 
 import java.util.Optional;

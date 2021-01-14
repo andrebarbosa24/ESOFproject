@@ -1,11 +1,10 @@
-package EngSoftProjeto.services;
+package engsoftprojeto.services;
 
 
-import EngSoftProjeto.Models.Cargo;
-import EngSoftProjeto.Models.Empregado;
-import EngSoftProjeto.Models.Tarefa;
-import EngSoftProjeto.Services.EmpregadoService;
-import EngSoftProjeto.Services.UseCasesFacade.Empregado.*;
+import engsoftprojeto.models.Cargo;
+import engsoftprojeto.models.Empregado;
+import engsoftprojeto.models.Tarefa;
+import engsoftprojeto.services.usecasesfacade.Empregado.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

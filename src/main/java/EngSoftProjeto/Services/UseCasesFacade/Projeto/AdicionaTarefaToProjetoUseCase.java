@@ -1,9 +1,9 @@
-package EngSoftProjeto.Services.UseCasesFacade.Projeto;
+package engsoftprojeto.services.usecasesfacade.Projeto;
 
-import EngSoftProjeto.Models.Projeto;
-import EngSoftProjeto.Models.Tarefa;
-import EngSoftProjeto.Repositories.ProjetoRepository;
-import EngSoftProjeto.Repositories.TarefaRepository;
+import engsoftprojeto.models.Projeto;
+import engsoftprojeto.models.Tarefa;
+import engsoftprojeto.repositories.ProjetoRepository;
+import engsoftprojeto.repositories.TarefaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +26,7 @@ public class AdicionaTarefaToProjetoUseCase {
             Optional<Projeto> optionalProjeto = projetoRepository.findById(id);
             if (optionalProjeto.isPresent()) {
                 Projeto projeto = optionalProjeto.get();
-                int numeroTarefasAntes = projeto.tarefas.size();
+                int numeroTarefasAntes = projeto.getTarefas().size();
 
                 if (projeto.tarefas.contains(tarefa)) {
                     return Optional.empty();
@@ -36,14 +36,15 @@ public class AdicionaTarefaToProjetoUseCase {
                 tarefaRepository.save(tarefa);
                 projetoRepository.save(projeto);
 
-                int numeroTarefasDepois = projeto.tarefas.size();
+                int numeroTarefasDepois = projeto.getTarefas().size();
+
                 if (numeroTarefasAntes != numeroTarefasDepois) {
                     return Optional.of(projeto);
                 }
             }
             return Optional.empty();
         } catch (Exception e) {
-            return Optional.empty();
+            return Optional.ofNullable(projetoRepository.findById(id)).orElseThrow(RuntimeException::new);
         }
     }
 }

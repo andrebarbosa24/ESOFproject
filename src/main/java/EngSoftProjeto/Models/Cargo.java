@@ -1,8 +1,4 @@
-package EngSoftProjeto.Models;
-
-import javax.persistence.Entity;
-import lombok.Getter;
-import lombok.Setter;
+package engsoftprojeto.models;
 
 public enum Cargo {
 

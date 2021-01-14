@@ -1,10 +1,9 @@
-package EngSoftProjeto.Services.UseCasesFacade.Tarefa;
+package engsoftprojeto.services.usecasesfacade.Tarefa;
 
-import EngSoftProjeto.Models.Tarefa;
-import EngSoftProjeto.Services.TarefaService;
+import engsoftprojeto.models.Tarefa;
+import engsoftprojeto.services.TarefaService;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service

@@ -1,7 +1,5 @@
-package EngSoftProjeto.Models;
+package engsoftprojeto.models;
 
-import EngSoftProjeto.Models.Cliente;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,10 +22,12 @@ public class Projeto {
   private String nome;
 
   @ManyToOne
+  @EqualsAndHashCode.Exclude
   private Cliente cliente;
 
 
   @OneToMany(mappedBy = "projeto",cascade = CascadeType.ALL)
+  @EqualsAndHashCode.Exclude
   public List<Tarefa> tarefas =new ArrayList<>();
 
 

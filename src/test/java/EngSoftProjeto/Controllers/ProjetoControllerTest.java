@@ -1,9 +1,8 @@
-package EngSoftProjeto.Controllers;
+package engsoftprojeto.controllers;
 
-import EngSoftProjeto.Models.*;
-import EngSoftProjeto.Services.ProjetoService;
-import EngSoftProjeto.dtos.TarefaCreateDTO;
-import com.fasterxml.jackson.core.JsonProcessingException;
+import engsoftprojeto.models.*;
+import engsoftprojeto.services.ProjetoService;
+import engsoftprojeto.dtos.TarefaCreateDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,27 +37,27 @@ class ProjetoControllerTest {
 
     @Test
     void getAllProjetos() throws Exception {
-        Projeto projeto1= new Projeto();
-        Projeto projeto2= new Projeto();
-        Projeto projeto3= new Projeto();
+        Projeto projeto1 = new Projeto();
+        Projeto projeto2 = new Projeto();
+        Projeto projeto3 = new Projeto();
 
-        List<Projeto> projetos= Arrays.asList(projeto1, projeto2, projeto3);
+        List<Projeto> projetos = Arrays.asList(projeto1, projeto2, projeto3);
 
         when(projetoService.findAll()).thenReturn(projetos);
 
-        String httpResponseAsString=mockMvc.perform(get("/projeto")).andDo(print()).andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
+        String httpResponseAsString = mockMvc.perform(get("/projeto/findAll")).andDo(print()).andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
         assertNotNull(httpResponseAsString);
 
     }
 
     @Test
-    void getProjetoById() throws Exception{
+    void getProjetoById() throws Exception {
 
-        Projeto projeto=new Projeto();
+        Projeto projeto = new Projeto();
 
         when(projetoService.findById(1L)).thenReturn(Optional.of(projeto));
 
-        String httpResponseAsString= mockMvc.perform(get("/projeto/1")).andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
+        String httpResponseAsString = mockMvc.perform(get("/projeto/1")).andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
         assertNotNull(httpResponseAsString);
 
         mockMvc.perform(get("/projeto/2")).andExpect(status().isNotFound());
@@ -68,26 +67,21 @@ class ProjetoControllerTest {
     @Test
     void createProjeto() throws Exception {
 
-        Cliente cliente= new Cliente();
-        cliente.setNome("Pedro");
-        cliente.setEmail("jp1234@gmail.com");
-
-        Projeto projeto= new Projeto();
+        Projeto projeto = new Projeto();
         projeto.setNome("Projeto A");
-        projeto.setId(1L);
-        projeto.setCliente(cliente);
 
         when(this.projetoService.criarProjeto(projeto)).thenReturn(Optional.of(projeto));
 
-        String projetoJson= objectMapper.writeValueAsString(projeto);
+        String projetoJson = objectMapper.writeValueAsString(projeto);
 
-       mockMvc.perform(
+        mockMvc.perform(
                 post("/projeto")
                         .content(projetoJson)
                         .contentType(MediaType.APPLICATION_JSON)
         ).andExpect((status().isOk()));
 
 
+        when(this.projetoService.criarProjeto(projeto)).thenReturn(Optional.empty());
         mockMvc.perform(
                 post("/projeto")
                         .content(projetoJson)
@@ -99,42 +93,39 @@ class ProjetoControllerTest {
     @Test
     void getCustoProjeto() throws Exception {
 
-        Cliente cliente= new Cliente();
-        cliente.setNome("Pedro");
-        cliente.setEmail("jp1234@gmail.com");
-
-        Projeto projeto= new Projeto();
+        Projeto projeto = new Projeto();
         projeto.setNome("Projeto A");
-        projeto.setCliente(cliente);
-        projeto.setId(1L);
 
-        Empregado empregado= new Empregado();
+        Empregado empregado = new Empregado();
+        empregado.setId(1L);
         empregado.setCargo(Cargo.AnalistaJr);
 
-        Tarefa tarefa= new Tarefa();
+        Tarefa tarefa = new Tarefa();
+        tarefa.setId(1L);
         tarefa.setEmpregado(empregado);
+
+        empregado.addTarefa(tarefa);
         projeto.addTarefa(tarefa);
 
         when(projetoService.custoProjeto(1L)).thenReturn(Optional.of(projeto));
 
-        String httpResponseAsString=mockMvc.perform(get("/projeto/1")).andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
+        String httpResponseAsString = mockMvc.perform(get("/custo/1")).andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
 
         assertNotNull(httpResponseAsString);
 
-        mockMvc.perform(get("/projeto/2")).andExpect(status().isNotFound());
+        mockMvc.perform(get("/custo/5")).andExpect(status().isNotFound());
     }
 
     @Test
-    void getDuracaoProjeto()throws Exception{
+    void getDuracaoProjeto() throws Exception {
 
-        Projeto projeto= new Projeto();
+        Projeto projeto = new Projeto();
         projeto.setNome("Projeto A");
-        projeto.setId(1L);
 
-        Empregado empregado= new Empregado();
+        Empregado empregado = new Empregado();
         empregado.setCargo(Cargo.AnalistaJr);
 
-        Tarefa tarefa= new Tarefa();
+        Tarefa tarefa = new Tarefa();
         tarefa.setEmpregado(empregado);
         tarefa.setDuracao(120);
 
@@ -143,7 +134,7 @@ class ProjetoControllerTest {
 
         when(projetoService.duracaoProjeto(1L)).thenReturn(Optional.of(projeto));
 
-        String httpResponseAsString=mockMvc.perform(get("/duracao/1")).andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
+        String httpResponseAsString = mockMvc.perform(get("/duracao/1")).andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
 
         assertNotNull(httpResponseAsString);
 
@@ -153,23 +144,25 @@ class ProjetoControllerTest {
     @Test
     void adicionaTarefa() throws Exception {
 
-        Projeto projeto= new Projeto();
+        Projeto projeto = new Projeto();
         projeto.setNome("Projeto A");
         projeto.setId(1L);
 
         TarefaCreateDTO tarefa = new TarefaCreateDTO();
-        //tarefa.setId(1L);
+        tarefa.setNome("redigir ssd");
         tarefa.setDuracao(120);
 
-        String tarefaJson= objectMapper.writeValueAsString(tarefa);
+        String tarefaJson = objectMapper.writeValueAsString(tarefa);
 
-        when(projetoService.adicionaTarefa(1L,tarefa.converter())).thenReturn(Optional.of(projeto));
+        when(projetoService.adicionaTarefa(1L, tarefa.converter())).thenReturn(Optional.of(projeto));
 
         mockMvc.perform(
                 patch("/projeto/1/addTarefaProjeto")
                         .content(tarefaJson)
                         .contentType(MediaType.APPLICATION_JSON)
         ).andExpect(status().isOk());
+
+        when(projetoService.adicionaTarefa(1L, tarefa.converter())).thenReturn(Optional.empty());
 
         mockMvc.perform(
                 patch("/projeto/2/addTarefaProjeto")
@@ -178,34 +171,4 @@ class ProjetoControllerTest {
         ).andExpect(status().isBadRequest());
     }
 
-    @Test
-    void atualizarTarefaDuracao() throws Exception{
-
-        Projeto projeto= new Projeto();
-        projeto.setNome("Projeto B");
-        projeto.setId(1L);
-
-        Tarefa tarefa= new Tarefa();
-        tarefa.setId(1L);
-        tarefa.setDuracao(60);
-        tarefa.setNome("Reler documentação");
-        tarefa.setProjeto(projeto);
-
-        projeto.addTarefa(tarefa);
-        when(projetoService.atualizarTarefaDuracao(1L, 1L, 80)).thenReturn(Optional.of(projeto));
-
-        String tarefaJson= objectMapper.writeValueAsString(tarefa);
-
-        mockMvc.perform(
-                patch("/1/atualizaTarefa")
-                        .content(tarefaJson)
-                        .contentType(MediaType.APPLICATION_JSON)
-        ).andExpect(status().isOk());
-
-        mockMvc.perform(
-                patch("/3/atualizaTarefa")
-                        .content(tarefaJson)
-                        .contentType(MediaType.APPLICATION_JSON)
-        ).andExpect(status().isBadRequest());
-    }
 }

@@ -1,13 +1,11 @@
-package EngSoftProjeto.Services.UseCasesFacade.Projeto;
+package engsoftprojeto.services.usecasesfacade.Projeto;
 
-import EngSoftProjeto.Models.Projeto;
-import EngSoftProjeto.Models.Tarefa;
-import EngSoftProjeto.Repositories.ProjetoRepository;
-import EngSoftProjeto.Repositories.TarefaRepository;
-import EngSoftProjeto.Services.ProjetoService;
+import engsoftprojeto.models.Projeto;
+import engsoftprojeto.models.Tarefa;
+import engsoftprojeto.repositories.ProjetoRepository;
+import engsoftprojeto.repositories.TarefaRepository;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.util.Optional;
 
 @Service
@@ -37,7 +35,7 @@ public class AtualizarDuracaoTarefaUseCase {
             }
             return Optional.empty();
         } catch (Exception e) {
-            return Optional.empty();
+            return Optional.ofNullable(projetoRepository.findById(projetoId)).orElseThrow(RuntimeException::new);
         }
     }
 }

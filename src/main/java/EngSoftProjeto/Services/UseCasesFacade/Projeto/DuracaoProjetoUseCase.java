@@ -1,8 +1,8 @@
-package EngSoftProjeto.Services.UseCasesFacade.Projeto;
+package engsoftprojeto.services.usecasesfacade.Projeto;
 
-import EngSoftProjeto.Models.Projeto;
-import EngSoftProjeto.Models.Tarefa;
-import EngSoftProjeto.Repositories.ProjetoRepository;
+import engsoftprojeto.models.Projeto;
+import engsoftprojeto.models.Tarefa;
+import engsoftprojeto.repositories.ProjetoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -29,7 +29,7 @@ public class DuracaoProjetoUseCase {
             }
             return Optional.empty();
         } catch (Exception e) {
-            return Optional.empty();
+            return Optional.ofNullable(projetoRepository.findById(id)).orElseThrow(RuntimeException::new);
         }
     }
 }

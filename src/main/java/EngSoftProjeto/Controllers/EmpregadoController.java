@@ -1,11 +1,11 @@
-package EngSoftProjeto.Controllers;
+package engsoftprojeto.controllers;
 
-import EngSoftProjeto.Models.Empregado;
-import EngSoftProjeto.Services.EmpregadoService;
-import EngSoftProjeto.dtos.EmpregadoCreateDTO;
-import EngSoftProjeto.dtos.EmpregadoResponseDTO;
-import EngSoftProjeto.dtos.TarefaCreateDTO;
-import EngSoftProjeto.dtos.conversores.ConverterEmpregadoParaDTO;
+import engsoftprojeto.models.Empregado;
+import engsoftprojeto.services.EmpregadoService;
+import engsoftprojeto.dtos.EmpregadoCreateDTO;
+import engsoftprojeto.dtos.EmpregadoResponseDTO;
+import engsoftprojeto.dtos.TarefaCreateDTO;
+import engsoftprojeto.dtos.conversores.ConverterEmpregadoParaDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 

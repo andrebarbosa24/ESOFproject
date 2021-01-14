@@ -1,12 +1,11 @@
-package EngSoftProjeto.Controllers;
+package engsoftprojeto.controllers;
 
-import EngSoftProjeto.Models.Empregado;
-import EngSoftProjeto.Models.Projeto;
-import EngSoftProjeto.Services.ProjetoService;
-import EngSoftProjeto.dtos.*;
-import EngSoftProjeto.dtos.conversores.ConverterCustoProjetoDTO;
-import EngSoftProjeto.dtos.conversores.ConverterDuracaoProjetoDTO;
-import EngSoftProjeto.dtos.conversores.ConverterProjetoParaDTO;
+import engsoftprojeto.models.Projeto;
+import engsoftprojeto.services.ProjetoService;
+import engsoftprojeto.dtos.*;
+import engsoftprojeto.dtos.conversores.ConverterCustoProjetoDTO;
+import engsoftprojeto.dtos.conversores.ConverterDuracaoProjetoDTO;
+import engsoftprojeto.dtos.conversores.ConverterProjetoParaDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -78,11 +77,6 @@ public class ProjetoController {
         return optionalProjeto.map(projeto -> ResponseEntity.ok(converterProjetoParaDTO.converter(projeto))).orElseGet(() -> ResponseEntity.badRequest().build());
     }
 
-    @PatchMapping("/{projetoId}/atualizaTarefa")
-    public ResponseEntity<ProjetoResponseDTO> atualizarTarefaDuracao(@PathVariable Long projetoId, @RequestBody TarefaCreateDTO tarefa ){
-        Optional<Projeto> optionalProjeto=projetoService.atualizarTarefaDuracao(projetoId,tarefa.converter().getId(),tarefa.converter().getDuracao());
-        return optionalProjeto.map(projeto -> ResponseEntity.ok(converterProjetoParaDTO.converter(projeto))).orElseGet(() -> ResponseEntity.badRequest().build());
-    }
 
 }
 

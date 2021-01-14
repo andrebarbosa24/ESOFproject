@@ -1,8 +1,8 @@
-package EngSoftProjeto.Repositories;
+package engsoftprojeto.repositories;
 
-import EngSoftProjeto.Models.Cargo;
-import EngSoftProjeto.Models.Empregado;
-import EngSoftProjeto.Models.Tarefa;
+import engsoftprojeto.models.Cargo;
+import engsoftprojeto.models.Empregado;
+import engsoftprojeto.models.Tarefa;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;

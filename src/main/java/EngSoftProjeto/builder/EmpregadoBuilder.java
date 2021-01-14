@@ -1,11 +1,8 @@
-package EngSoftProjeto.builder;
+package engsoftprojeto.builder;
 
-import EngSoftProjeto.Models.Cargo;
-import EngSoftProjeto.Models.Empregado;
-import EngSoftProjeto.Models.Projeto;
-import EngSoftProjeto.Models.Tarefa;
-
-import java.util.ArrayList;
+import engsoftprojeto.models.Cargo;
+import engsoftprojeto.models.Empregado;
+import engsoftprojeto.models.Tarefa;
 
 public class EmpregadoBuilder {
 

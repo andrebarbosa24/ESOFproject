@@ -1,15 +1,18 @@
-package EngSoftProjeto.dtos;
+package engsoftprojeto.dtos;
 
-import EngSoftProjeto.Models.Projeto;
+import engsoftprojeto.models.Projeto;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
+@EqualsAndHashCode
 public class ProjetoCreateDTO implements CreateDTO<Projeto>{
 
-    //Eliminamos o desnecessário na criação de um Projeto
+    @EqualsAndHashCode.Exclude
     private Long id;
+
     private String nome;
 
     @Override

@@ -1,12 +1,8 @@
-package EngSoftProjeto.Controllers;
+package engsoftprojeto.controllers;
 
-import EngSoftProjeto.Models.Empregado;
-import EngSoftProjeto.Models.Tarefa;
-import EngSoftProjeto.Repositories.EmpregadoRepository;
-import EngSoftProjeto.Repositories.TarefaRepository;
-import EngSoftProjeto.Services.EmpregadoService;
-import EngSoftProjeto.dtos.EmpregadoCreateDTO;
-import EngSoftProjeto.dtos.TarefaCreateDTO;
+import engsoftprojeto.models.Empregado;
+import engsoftprojeto.models.Tarefa;
+import engsoftprojeto.services.EmpregadoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +13,6 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -41,46 +36,42 @@ class EmpregadoControllerTest {
         empregado.setId(1L);
         empregado.setNome("Joao B");
 
-        //
         when(this.empregadoService.criaEmpregado(empregado)).thenReturn(Optional.of(empregado));
 
         String empregadoAsJsonString= objectMapper.writeValueAsString(empregado);
 
-
         mockMvc.perform(post("/empregado").content(empregadoAsJsonString).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
-        //mockMvc.perform(post("/empregado").content(empregadoAsJsonString).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isBadRequest());
 
-       Empregado empregadoExistente= new Empregado();
-        empregadoExistente.setNome("Joao C");
-        empregadoExistente.setId(2L);
+        when(this.empregadoService.criaEmpregado(empregado)).thenReturn(Optional.empty());
 
-        String empregadoExistenteAsJsonString= objectMapper.writeValueAsString(empregadoExistente);
-        mockMvc.perform(post("/empregado").content(empregadoExistenteAsJsonString).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isBadRequest());
+        mockMvc.perform(post("/empregado").content(empregadoAsJsonString).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isBadRequest());
 
     }
 
     @Test
     void adicionaTarefa() throws Exception{
 
-        EmpregadoCreateDTO empregado= new EmpregadoCreateDTO();
+        Empregado empregado= new Empregado();
         empregado.setNome("Joao A");
         empregado.setId(1L);
 
-        TarefaCreateDTO tarefa= new TarefaCreateDTO();
+        Tarefa tarefa= new Tarefa();
         tarefa.setNome("redigir relatorio");
         tarefa.setDuracao(60);
-        //tarefa.setId(1L);
 
         String tarefaJson= objectMapper.writeValueAsString(tarefa);
 
-        when(empregadoService.adicionaTarefa(1L, tarefa.converter())).thenReturn(Optional.empty());
+        when(empregadoService.adicionaTarefa(1L, tarefa)).thenReturn(Optional.of(empregado));
 
+        //Testes HTTP com Mock
         mockMvc.perform(patch("/empregado/1/addTarefaEmpregado")
                         .content(tarefaJson)
                         .contentType(MediaType.APPLICATION_JSON)
         ).andExpect(status().isOk());
 
-        mockMvc.perform(patch("/empregado/2/addTarefaEmpregado")
+        when(empregadoService.adicionaTarefa(1L, tarefa)).thenReturn(Optional.empty());
+
+        mockMvc.perform(patch("/empregado/5/addTarefaEmpregado")
                 .content(tarefaJson)
                 .contentType(MediaType.APPLICATION_JSON)
         ).andExpect(status().isBadRequest());

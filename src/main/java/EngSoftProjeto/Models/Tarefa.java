@@ -1,17 +1,16 @@
-package EngSoftProjeto.Models;
+package engsoftprojeto.models;
 
-import EngSoftProjeto.Models.Empregado;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @Setter
 @Entity
+@EqualsAndHashCode
 public class Tarefa {
 
   @Id
@@ -22,21 +21,24 @@ public class Tarefa {
 
   @ManyToOne
   @JsonIgnore
+  @EqualsAndHashCode.Exclude
   private Empregado empregado;
 
   private Integer duracao;  //duracao é minutos
 
   @ManyToOne
   @JsonIgnore
+  @EqualsAndHashCode.Exclude
   private Projeto projeto;
 
 
 
   public int custoTarefa() {
     int custo=0;
-    //passa min para horas, consideramos minimo aceitável 60 min
     int hora= duracao/60;
-    custo= hora * empregado.custo(empregado.getCargo());
+    if(this.empregado!=null) {
+      custo = hora * empregado.custo();
+    }
 
     return custo;
   }

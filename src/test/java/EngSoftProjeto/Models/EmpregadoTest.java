@@ -1,4 +1,4 @@
-package EngSoftProjeto.Models;
+package engsoftprojeto.models;
 
 import org.junit.jupiter.api.Test;
 
@@ -23,13 +23,13 @@ class EmpregadoTest {
         emp2.setNome("Brunono");
         emp2.setCargo(Cargo.AnalistaSr);
 
-        assertEquals(10,emp1.custo(emp1.getCargo()));
-        assertEquals(80,emp2.custo(emp2.getCargo()) );
+        assertEquals(10,emp1.custo());
+        assertEquals(80,emp2.custo() );
 
         Empregado emp3= new Empregado();
         emp3.setNome("Leo");
         emp3.setCargo(Cargo.CEO);
 
-        assertEquals(0, emp3.custo(emp3.getCargo()));
+        assertEquals(0, emp3.custo());
     }
 }

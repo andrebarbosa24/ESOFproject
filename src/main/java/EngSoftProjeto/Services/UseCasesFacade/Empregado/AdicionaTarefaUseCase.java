@@ -1,9 +1,9 @@
-package EngSoftProjeto.Services.UseCasesFacade.Empregado;
+package engsoftprojeto.services.usecasesfacade.Empregado;
 
-import EngSoftProjeto.Models.Empregado;
-import EngSoftProjeto.Models.Tarefa;
-import EngSoftProjeto.Repositories.EmpregadoRepository;
-import EngSoftProjeto.Repositories.TarefaRepository;
+import engsoftprojeto.models.Empregado;
+import engsoftprojeto.models.Tarefa;
+import engsoftprojeto.repositories.EmpregadoRepository;
+import engsoftprojeto.repositories.TarefaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +23,7 @@ public class AdicionaTarefaUseCase {
 
 
     public Optional<Empregado> adicionaTarefa(Long empregadoId, Tarefa tarefa) {
-        try {
+        try{
             Optional<Empregado> optionalEmpregado = this.empregadoRepository.findById(empregadoId);
             if (optionalEmpregado.isPresent()) {
                 Empregado empregado = optionalEmpregado.get();
@@ -44,7 +44,7 @@ public class AdicionaTarefaUseCase {
             }
             return Optional.empty();
         } catch (Exception e) {
-            return Optional.empty();
+            return Optional.ofNullable(empregadoRepository.findById(empregadoId)).orElseThrow(RuntimeException::new);
         }
     }
 }

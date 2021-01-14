@@ -1,7 +1,7 @@
-package EngSoftProjeto.Controllers;
+package engsoftprojeto.controllers;
 
-import EngSoftProjeto.Models.Tarefa;
-import EngSoftProjeto.Services.TarefaService;
+import engsoftprojeto.services.TarefaService;
+import engsoftprojeto.dtos.TarefaCreateDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,23 +31,21 @@ class TarefaControllerTest {
 
     @Test
     void criarTarefa() throws Exception{
-        Tarefa tarefa= new Tarefa();
-        tarefa.setId(1L);
-        tarefa.setNome("Executar testes");
-        tarefa.setDuracao(180);
 
-        when(this.tarefaService.criarTarefa(tarefa)).thenReturn(Optional.of(tarefa));
+        TarefaCreateDTO tarefaCreateDTO= new TarefaCreateDTO();
+        tarefaCreateDTO.setId(1L);
+        tarefaCreateDTO.setNome("ler ler");
+        tarefaCreateDTO.setDuracao(90);
 
-        String tarefaAsJsonString= objectMapper.writeValueAsString(tarefa);
-        //mockMvc.perform(post("/tarefa").content(tarefaAsJsonString).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+        when(this.tarefaService.criarTarefa(tarefaCreateDTO.converter())).thenReturn(Optional.of(tarefaCreateDTO.converter()));
+
+        String tarefaAsJsonString= objectMapper.writeValueAsString(tarefaCreateDTO);
+
+        mockMvc.perform(post("/tarefa").content(tarefaAsJsonString).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+
+        when(this.tarefaService.criarTarefa(tarefaCreateDTO.converter())).thenReturn(Optional.empty());
+
         mockMvc.perform(post("/tarefa").content(tarefaAsJsonString).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isBadRequest());
-
-        /*Tarefa tarefaExistente= new Tarefa();
-        tarefaExistente.setNome("Corrigir erros");
-        tarefaExistente.setDuracao(60);
-        String tarefaExistenteAsJsonString= new ObjectMapper().writeValueAsString(tarefaExistente);
-
-        mockMvc.perform(post("/tarefa").content(tarefaExistenteAsJsonString).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isBadRequest());*/
 
     }
 }

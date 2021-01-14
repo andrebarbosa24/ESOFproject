@@ -1,17 +1,20 @@
-package EngSoftProjeto.dtos;
+package engsoftprojeto.dtos;
 
 
-import EngSoftProjeto.Models.Cargo;
-import EngSoftProjeto.Models.Empregado;
+import engsoftprojeto.models.Empregado;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
+@EqualsAndHashCode
 public class EmpregadoCreateDTO implements CreateDTO<Empregado>{
 
-        //Eliminamos o denecessário
+
+
         private Long id;
+        @EqualsAndHashCode.Exclude
         private String nome;
 
         @Override

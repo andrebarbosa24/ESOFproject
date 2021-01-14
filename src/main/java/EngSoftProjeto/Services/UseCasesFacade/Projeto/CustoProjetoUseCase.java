@@ -1,9 +1,8 @@
-package EngSoftProjeto.Services.UseCasesFacade.Projeto;
+package engsoftprojeto.services.usecasesfacade.Projeto;
 
-import EngSoftProjeto.Models.Projeto;
-import EngSoftProjeto.Models.Tarefa;
-import EngSoftProjeto.Repositories.ProjetoRepository;
-import EngSoftProjeto.Repositories.TarefaRepository;
+import engsoftprojeto.models.Projeto;
+import engsoftprojeto.models.Tarefa;
+import engsoftprojeto.repositories.ProjetoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -25,13 +24,14 @@ public class CustoProjetoUseCase {
             if (optionalProjeto.isPresent()) {
                 Projeto projeto = optionalProjeto.get();
                 for (Tarefa t : projeto.tarefas) {
+                    if(t.getEmpregado() != null)
                     custoTotal = custoTotal + t.custoTarefa();
                 }
                 return Optional.of(projeto);
             }
             return Optional.empty();
         } catch (Exception e) {
-            return Optional.empty();
+            return Optional.ofNullable(projetoRepository.findById(id)).orElseThrow(RuntimeException::new);
         }
     }
 }

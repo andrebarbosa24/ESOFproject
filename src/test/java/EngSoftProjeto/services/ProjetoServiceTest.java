@@ -1,10 +1,9 @@
-package EngSoftProjeto.services;
+package engsoftprojeto.services;
 
 
-import EngSoftProjeto.Models.*;
-import EngSoftProjeto.Services.ProjetoService;
-import EngSoftProjeto.Services.UseCasesFacade.Projeto.*;
+import engsoftprojeto.models.*;
 
+import engsoftprojeto.services.usecasesfacade.Projeto.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

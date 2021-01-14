@@ -1,9 +1,8 @@
-package EngSoftProjeto.builder;
+package engsoftprojeto.builder;
 
-import EngSoftProjeto.Models.Cliente;
-import EngSoftProjeto.Models.Projeto;
-import EngSoftProjeto.Models.Tarefa;
-import org.apache.catalina.Cluster;
+import engsoftprojeto.models.Cliente;
+import engsoftprojeto.models.Projeto;
+import engsoftprojeto.models.Tarefa;
 
 public class ProjetoBuilder {
     private Projeto projeto;

@@ -1,9 +1,9 @@
-package EngSoftProjeto.Services.UseCasesFacade.Empregado;
+package engsoftprojeto.services.usecasesfacade.Empregado;
 
-import EngSoftProjeto.Models.Empregado;
-import EngSoftProjeto.Models.Tarefa;
-import EngSoftProjeto.Repositories.EmpregadoRepository;
-import EngSoftProjeto.Repositories.TarefaRepository;
+import engsoftprojeto.models.Empregado;
+import engsoftprojeto.models.Tarefa;
+import engsoftprojeto.repositories.EmpregadoRepository;
+import engsoftprojeto.repositories.TarefaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

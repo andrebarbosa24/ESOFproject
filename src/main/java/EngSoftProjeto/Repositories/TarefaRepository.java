@@ -1,6 +1,6 @@
-package EngSoftProjeto.Repositories;
+package engsoftprojeto.repositories;
 
-import EngSoftProjeto.Models.Tarefa;
+import engsoftprojeto.models.Tarefa;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

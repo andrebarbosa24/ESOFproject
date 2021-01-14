@@ -1,4 +1,4 @@
-package EngSoftProjeto.dtos.conversores;
+package engsoftprojeto.dtos.conversores;
 
 public interface Conversor<O,I> {
     O converter(I i);

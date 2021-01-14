@@ -1,10 +1,10 @@
-package EngSoftProjeto.Controllers;
+package engsoftprojeto.controllers;
 
-import EngSoftProjeto.Models.Tarefa;
-import EngSoftProjeto.Services.TarefaService;
-import EngSoftProjeto.dtos.TarefaCreateDTO;
-import EngSoftProjeto.dtos.TarefaResponseDTO;
-import EngSoftProjeto.dtos.conversores.ConverterTarefaParaDTO;
+import engsoftprojeto.models.Tarefa;
+import engsoftprojeto.services.TarefaService;
+import engsoftprojeto.dtos.TarefaCreateDTO;
+import engsoftprojeto.dtos.TarefaResponseDTO;
+import engsoftprojeto.dtos.conversores.ConverterTarefaParaDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;

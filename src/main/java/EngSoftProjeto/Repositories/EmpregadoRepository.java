@@ -1,6 +1,6 @@
-package EngSoftProjeto.Repositories;
+package engsoftprojeto.repositories;
 
-import EngSoftProjeto.Models.Empregado;
+import engsoftprojeto.models.Empregado;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

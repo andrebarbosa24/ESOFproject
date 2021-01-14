@@ -1,8 +1,7 @@
-package EngSoftProjeto.Repositories;
+package engsoftprojeto.repositories;
 
-import EngSoftProjeto.Models.Cargo;
-import EngSoftProjeto.Models.Empregado;
-import EngSoftProjeto.Models.Tarefa;
+import engsoftprojeto.models.Cargo;
+import engsoftprojeto.models.Empregado;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -21,12 +20,12 @@ class EmpregadoRepositoryTest {
         Empregado emp = new Empregado();
         emp.setNome("Andre B");
         emp.setCargo(Cargo.DesenvolvedorJr);
-        emp.custo(emp.getCargo());
+        emp.custo();
 
         Empregado emp2 = new Empregado();
         emp2.setNome("Jose N");
         emp2.setCargo(Cargo.AnalistaJr);
-        emp2.custo(emp2.getCargo());
+        emp2.custo();
 
         assertEquals(0, empregadoRepository.count());
 

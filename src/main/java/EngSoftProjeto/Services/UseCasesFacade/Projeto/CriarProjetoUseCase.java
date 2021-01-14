@@ -1,12 +1,11 @@
-package EngSoftProjeto.Services.UseCasesFacade.Projeto;
+package engsoftprojeto.services.usecasesfacade.Projeto;
 
-import EngSoftProjeto.Models.Projeto;
-import EngSoftProjeto.Models.Tarefa;
-import EngSoftProjeto.Repositories.ProjetoRepository;
-import EngSoftProjeto.Repositories.TarefaRepository;
+import engsoftprojeto.models.Projeto;
+import engsoftprojeto.models.Tarefa;
+import engsoftprojeto.repositories.ProjetoRepository;
+import engsoftprojeto.repositories.TarefaRepository;
 import org.springframework.stereotype.Service;
 
-import java.io.ObjectInput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -27,14 +26,12 @@ public class CriarProjetoUseCase {
         try {
             Optional<Projeto> optionalProjeto = projetoRepository.findById(projeto.getId());
             if (optionalProjeto.isEmpty()) {
-                projetoRepository.save(projeto);
                 List<Tarefa> tarefas = new ArrayList<>();
                 projeto.getTarefas().forEach(tarefa -> {
                     Optional<Tarefa> optionalTarefa = tarefaRepository.findById(tarefa.getId());
                     if (optionalTarefa.isPresent()) {
                         tarefas.add(tarefa);
                         projeto.addTarefa(tarefa);
-                        projetoRepository.save(optionalProjeto.get());
                     }
                 });
                 projeto.setTarefas(tarefas);

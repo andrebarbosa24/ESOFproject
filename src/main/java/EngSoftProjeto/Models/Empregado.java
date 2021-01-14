@@ -1,6 +1,5 @@
-package EngSoftProjeto.Models;
+package engsoftprojeto.models;
 
-import EngSoftProjeto.Services.EmpregadoService;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -13,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@EqualsAndHashCode  //adicionado
+@EqualsAndHashCode
 public class Empregado {
 
   @Id
@@ -22,20 +21,24 @@ public class Empregado {
 
   private String nome;
 
-  @Transient
   @JsonIgnore
+  @EqualsAndHashCode.Exclude
   private Cargo cargo;
 
 
   @OneToMany(mappedBy = "empregado")
   @JsonIgnore
+  @EqualsAndHashCode.Exclude
   public List<Tarefa> tarefas= new ArrayList<>();
 
 
   //retorna valor-hora de um empregado
-  public int custo(Cargo cg) {
+  public int custo() {
     int horaValor;
-    switch (cg){
+    if(this.cargo == null){
+      return 0;
+    }
+    switch (this.cargo){
       case DesenvolvedorJr:
         horaValor=cargo.DesenvolvedorJr.getSalarioHora();
         break;

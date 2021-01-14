@@ -1,11 +1,8 @@
-package EngSoftProjeto.builder;
+package engsoftprojeto.builder;
 
-import EngSoftProjeto.Models.Cliente;
-import EngSoftProjeto.Models.Empregado;
-import EngSoftProjeto.Models.Projeto;
-import EngSoftProjeto.Models.Tarefa;
-
-import java.time.Duration;
+import engsoftprojeto.models.Empregado;
+import engsoftprojeto.models.Projeto;
+import engsoftprojeto.models.Tarefa;
 
 public class TarefaBuilder {
 
